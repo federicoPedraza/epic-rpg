@@ -11,7 +11,7 @@ export const Card = (props: ICard) => {
     }
 
     return (
-        <Draggable bounds='body' position={position}>
+        <Draggable bounds='body' defaultPosition={position}>
             <div>
                 <div className='card'>
                     <div className='card-header'>
