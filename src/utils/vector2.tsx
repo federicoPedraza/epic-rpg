@@ -1,0 +1,1 @@
+export const Vector2: Record<'x'|'y', number> = { x: 0, y: 0 };
