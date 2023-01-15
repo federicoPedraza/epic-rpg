@@ -7,4 +7,11 @@ export interface ICard {
     children?: any;
     closeable?: boolean;
     onClose?: any;
+    type?: CardType;
+}
+
+export enum CardType {
+    SMALL,
+    BIG,
+    LONG
 }

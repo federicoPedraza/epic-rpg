@@ -5,6 +5,7 @@ import { Canvas } from './components/canvas/canvas';
 import { LoginCard } from './components/cards/login/login.card';
 import { SignupCard } from './components/cards/signup/signup.card';
 import { WelcomeCard } from './components/cards/welcome/welcome.card';
+import { ConsoleCard } from './components/console/console';
 
 function App() {
   const [ cards, setCards ] = useState<any[]>([]);
@@ -19,6 +20,7 @@ function App() {
       (<WelcomeCard id={uuidv4()} position={{x: -100, y: 0}} title="Welcome" onClose={handleClose} />),
       (<LoginCard id={uuidv4()} position={{x: 0, y: 0}} title="Login" onClose={handleClose} />),
       (<SignupCard id={uuidv4()} position={{x: 200, y: 300}} title="Signup" onClose={handleClose} />),
+      (<ConsoleCard id={uuidv4()} position={{x: 0, y: -200}} title="Signup" onClose={handleClose} />),
     ])
   }, []);
 

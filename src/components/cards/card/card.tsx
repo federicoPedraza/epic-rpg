@@ -1,32 +1,24 @@
 import React from 'react'
-import { ICard } from './card.constants';   
+import { CardType, ICard } from './card.constants';   
 import './cards.sass'
-import Draggable from 'react-draggable';
+import { LongCard } from './long-card';
+import { SmallCard } from './small-card';
 
 export const Card = (props: ICard) => {
-    const { id, title, children, closeable, onClose, position } = props;
+    const { id, onClose, type } = props;
 
     const onCloseCard = () => {
         onClose(id);
     }
 
-    return (
-        <Draggable bounds='body' defaultPosition={position}>
-            <div>
-                <div className='card'>
-                    <div className='card-header'>
-                        <span className='card-title'>{title}</span>
-                        {closeable && (
-                            <button className='card-exit-button' onClick={onCloseCard}>
-                                <i className="fas fa-times"></i>
-                            </button>
-                        )}
-                    </div>
-                    <div className='card-content'>
-                        {children}
-                    </div>
-                </div>
-            </div>
-        </Draggable>
-    )
+    switch (type) {
+        case CardType.SMALL:
+            return (<SmallCard {...props} onClose={onCloseCard} />)
+
+        case CardType.LONG:
+            return (<LongCard {...props} onClose={onCloseCard} />)
+
+        default:
+            return (<SmallCard {...props} onClose={onCloseCard} />)
+    }
 }
