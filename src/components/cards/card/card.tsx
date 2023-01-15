@@ -11,11 +11,7 @@ export const Card = (props: ICard) => {
     }
 
     return (
-<<<<<<< HEAD
         <Draggable bounds='body' defaultPosition={position}>
-=======
-        <Draggable bounds='body' position={position}>
->>>>>>> 3c5aeda (feat(game): added the main game structure)
             <div>
                 <div className='card'>
                     <div className='card-header'>
