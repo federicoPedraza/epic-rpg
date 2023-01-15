@@ -7,6 +7,13 @@ export interface ICard {
     children?: any;
     closeable?: boolean;
     onClose?: any;
+
+    onStartDrag?: any;
+    onDrag?: any;
+    onEndDrag?: any;
+
+    highlighted?: boolean;
+    style?: string;
     type?: CardType;
 }
 
