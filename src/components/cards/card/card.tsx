@@ -1,32 +1,34 @@
-import React from 'react'
-import { ICard } from './card.constants';   
+import React, { useState } from 'react'
+import { CommandCenter } from '../../../services/console.service';
+import { CardType, ICard } from './card.constants';   
 import './cards.sass'
-import Draggable from 'react-draggable';
+import { LongCard } from './long-card';
+import { SmallCard } from './small-card';
 
 export const Card = (props: ICard) => {
-    const { id, title, children, closeable, onClose, position } = props;
+    const { id, type, title } = props;
+    const [highlighted, setHighlighted] = useState<boolean>(false);
 
     const onCloseCard = () => {
-        onClose(id);
+        CommandCenter.getInstance().invokeCommand('close', title);
     }
 
-    return (
-        <Draggable bounds='body' defaultPosition={position}>
-            <div>
-                <div className='card'>
-                    <div className='card-header'>
-                        <span className='card-title'>{title}</span>
-                        {closeable && (
-                            <button className='card-exit-button' onClick={onCloseCard}>
-                                <i className="fas fa-times"></i>
-                            </button>
-                        )}
-                    </div>
-                    <div className='card-content'>
-                        {children}
-                    </div>
-                </div>
-            </div>
-        </Draggable>
-    )
+    const onStartDrag = () => {
+        setHighlighted(true);
+    }
+
+    const onEndDrag = () => {
+        setHighlighted(false);
+    }
+
+    switch (type) {
+        case CardType.SMALL:
+            return (<SmallCard {...props} onClose={onCloseCard} onStartDrag={onStartDrag} onEndDrag={onEndDrag} style={highlighted ? 'infront' : ''} />)
+
+        case CardType.LONG:
+            return (<LongCard {...props} onClose={onCloseCard} onStartDrag={onStartDrag} onEndDrag={onEndDrag} style={highlighted ? 'infront' : ''} />)
+
+        default:
+            return (<SmallCard {...props} onClose={onCloseCard} onStartDrag={onStartDrag} onEndDrag={onEndDrag} style={highlighted ? 'infront' : ''} />)
+    }
 }
