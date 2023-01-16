@@ -5,6 +5,7 @@
     import { CardType, ICard } from '../cards/card/card.constants';
     import { useClipboard } from 'use-clipboard-copy';
     import './console.sass';
+import { CommandCenter } from '../../services/console.service';
 
     export const ConsoleCard = (props: ICard) => {
         const { id, position, onClose } = props;
@@ -16,7 +17,14 @@
 
         const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
             e.preventDefault();
-            console.log(value);
+            let word = value.match(/\S+/g);
+            let command = word?.slice(1).join(' ');
+
+            console.log(word);
+            if (word) {
+                CommandCenter.getInstance().executeCommand(word[0], command)
+            }
+            
             setLastValue(value);
             setValue('');
             if (inputRef.current)

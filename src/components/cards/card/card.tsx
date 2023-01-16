@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
+import { CommandCenter } from '../../../services/console.service';
 import { CardType, ICard } from './card.constants';   
 import './cards.sass'
 import { LongCard } from './long-card';
 import { SmallCard } from './small-card';
 
 export const Card = (props: ICard) => {
-    const { id, onClose, type } = props;
+    const { id, type, title } = props;
     const [highlighted, setHighlighted] = useState<boolean>(false);
 
     const onCloseCard = () => {
-        onClose(id);
+        CommandCenter.getInstance().invokeCommand('close', title);
     }
 
     const onStartDrag = () => {
