@@ -17,14 +17,19 @@ const ConsoleCard = (props: ICard) => {
     const inputRef = useRef<HTMLInputElement>(null);
 
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        setLastValue(value);
         e.preventDefault();
-        let word = value.match(/\S+/g);
-        let command = word?.slice(1).join(' ');
+        const multipleCommands = value.includes(';');
+        const commands = multipleCommands ? value.split(';') : [value]; 
 
-        if (word)
-            CommandCenter.getInstance().executeCommand(word[0], command)
-
+        commands.forEach(command => {
+            let word = command.match(/\S+/g);
+            let args = word?.slice(1).join(' ');
+            console.log(args);
+            if (args && word)
+                CommandCenter.getInstance().executeCommand(word[0], args)
+        })
+        
+        setLastValue(value);
         setValue('');
         if (inputRef.current)
             inputRef.current.focus();

@@ -7,6 +7,7 @@ import LoginCard from '../cards/login/login.card';
 import SignupCard from '../cards/signup/signup.card';
 import ConsoleCard from '../console/console';
 import NotesCard from '../cards/notes/notes.card';
+import ProfileCard from '../cards/profile/profile.card';
 
 //add dynamic imports
 const cards = new Map([
@@ -15,6 +16,7 @@ const cards = new Map([
     ["signup", SignupCard],
     ["console", ConsoleCard],
     ["notes", NotesCard],
+    ["profile", ProfileCard]
 ])
 
 export const Canvas = () => {
