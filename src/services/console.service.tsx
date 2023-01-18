@@ -1,6 +1,6 @@
 export class CommandCenter {
     private static instance: CommandCenter;
-    private commands: Map<string, (parameters: any) => any>;
+    public commands: Map<string, (parameters: any) => any>;
 
     private constructor() {
         this.commands = new Map();

@@ -6,11 +6,12 @@ import { LongCard } from './long-card';
 import { SmallCard } from './small-card';
 
 export const Card = (props: ICard) => {
-    const { id, type, title } = props;
+    const { type, title, closeable } = props;
     const [highlighted, setHighlighted] = useState<boolean>(false);
 
     const onCloseCard = () => {
-        CommandCenter.getInstance().invokeCommand('close', title);
+        if (closeable)
+            CommandCenter.getInstance().invokeCommand('close', title);
     }
 
     const onStartDrag = () => {

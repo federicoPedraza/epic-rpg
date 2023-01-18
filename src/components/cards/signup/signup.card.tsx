@@ -2,12 +2,13 @@ import React from 'react'
 import { Card } from '../card/card';
 import { ICard } from '../card/card.constants';
 
-export const SignupCard = (props: ICard) => {
-    const { id, title, position } = props;
+const SignupCard = (props: ICard) => {
 
     return (
-        <Card id={id} position={position} title={title} closeable>
+        <Card {...props}>
             <button>Signup</button>
         </Card>
     )
 }
+
+export default SignupCard;

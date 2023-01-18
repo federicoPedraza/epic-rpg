@@ -1,0 +1,29 @@
+{
+    "cards": [
+        {
+            "id": 0,
+            "title": "Console",
+            "component": "ConsoleCard"
+        },
+        {
+            "id": 1,
+            "title": "Welcome",
+            "component": "WelcomeCard"
+        },
+        {
+            "id": 2,
+            "title": "Login",
+            "component": "LoginCard"
+        },
+        {
+            "id": 3,
+            "title": "Signup",
+            "component": "SignupCard"
+        },
+        {
+            "id": 4,
+            "title": "Notes",
+            "component": "NotesCard"
+        }
+    ]
+}

@@ -5,7 +5,10 @@ export interface ICard {
     position: typeof Vector2;
     title?: string;
     children?: any;
+
+    open?: boolean;
     closeable?: boolean;
+
     onClose?: any;
 
     onStartDrag?: any;

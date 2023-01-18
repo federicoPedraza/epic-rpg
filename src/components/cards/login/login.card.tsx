@@ -2,7 +2,7 @@ import React from 'react'
 import { Card } from '../card/card';
 import { ICard } from '../card/card.constants';
 
-export const LoginCard = (props: ICard) => {
+const LoginCard = (props: ICard) => {
     const { id, title, position } = props;
 
     return (
@@ -11,3 +11,5 @@ export const LoginCard = (props: ICard) => {
         </Card>
     )
 }
+
+export default LoginCard;

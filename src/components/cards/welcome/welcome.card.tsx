@@ -3,13 +3,11 @@ import { Card } from '../card/card';
 import { ICard } from '../card/card.constants';
 import './welcome-card.sass'
 
-export const WelcomeCard = (props: ICard) => {
-    const { id, title, position } = props;
-    const hasUser = false;
+const WelcomeCard = (props: ICard) => {
     //TODO: Remove closeable when user is null.
 
     return (
-        <Card id={id} position={position} title={title} closeable={hasUser}>
+        <Card {...props}>
             <div className='welcome-card'>
                 <span><b>Welcome to EPIC RPG.</b></span>
                 <span>Please continue by logging in or signing up.</span>
@@ -19,3 +17,5 @@ export const WelcomeCard = (props: ICard) => {
         </Card>
     )
 }
+
+export default WelcomeCard;
