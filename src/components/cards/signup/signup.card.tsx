@@ -5,7 +5,7 @@ import { ICard } from '../card/card.constants';
 const SignupCard = (props: ICard) => {
 
     return (
-        <Card {...props}>
+        <Card {...props} title="Signup">
             <button>Signup</button>
         </Card>
     )

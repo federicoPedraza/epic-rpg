@@ -10,7 +10,6 @@ import './console.sass';
 import { CommandCenter } from '../../services/console.service';
 
 const ConsoleCard = (props: ICard) => {
-    const { id, position, onClose } = props;
     const { copy } = useClipboard();
     const [value, setValue] = useState<string>('');
     const [lastValue, setLastValue] = useState<string>('');
@@ -59,7 +58,7 @@ const ConsoleCard = (props: ICard) => {
 
     return (
         <div>
-            <Card id={id} position={position} title='' onClose={onClose} type={CardType.LONG}>
+            <Card {...props} title='' type={CardType.LONG}>
                 <div className='last-command-container'>
                     {lastValue && <span className='last-command'>{lastValue}</span>}
                     {lastValue.length > 0 &&

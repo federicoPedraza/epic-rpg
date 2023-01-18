@@ -7,7 +7,7 @@ const WelcomeCard = (props: ICard) => {
     //TODO: Remove closeable when user is null.
 
     return (
-        <Card {...props}>
+        <Card {...props} title="Welcome">
             <div className='welcome-card'>
                 <span><b>Welcome to EPIC RPG.</b></span>
                 <span>Please continue by logging in or signing up.</span>
