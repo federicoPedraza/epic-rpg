@@ -23,6 +23,8 @@ export const Canvas = () => {
     const [openCards, setOpenCards] = useState<JSX.Element[]>([]);
 
     const handleClose = (title: string) => {
+        console.log(openCards);
+
         setOpenCards(previousCards => previousCards.filter((card) => {
             return card.type !== cards.get(title.toLowerCase());
         }));
