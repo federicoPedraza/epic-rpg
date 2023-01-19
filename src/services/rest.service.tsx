@@ -24,6 +24,26 @@ class RestService {
             throw error;
         }
     }
+
+    async signup(username: string, mail: string, password: string) {
+        try {
+            const response = await axios.post(`${this.baseURL}/signup`, { username: username, mail: mail, password: password });
+            return response;
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
+    }
+
+    async login(username: string, password: string) {
+        try {
+            const response = await axios.post(`${this.baseURL}/login`, { params: {username, password}});
+            return response;
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
+    }
 }
 
 export default RestService;

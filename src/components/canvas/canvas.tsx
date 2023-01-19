@@ -49,7 +49,8 @@ export const Canvas = () => {
         commandCenter.registerCommands(commands);
         commandCenter.registerCommand('close', handleClose);
         commandCenter.registerCommand('open', handleOpen);
-        commandCenter.invokeCommand('open', 'console');
+        commandCenter.invokeCommand('open', 'login');
+        commandCenter.invokeCommand('open', 'signup');
 
         service.getUsers().then(users => {
             console.log(users);
