@@ -10,7 +10,8 @@
                 "invalid_email": "Please enter a valid email",
                 "unavailable_email": "This email is already in use",
                 "invalid_password": "Passwords must be 6 or more characters long, with at least one capital letter and one number"
-            }
+            },
+            "successful": "Signup successful"
         }
     }
 }

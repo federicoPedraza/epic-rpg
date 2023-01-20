@@ -10,7 +10,8 @@
                 "invalid_email": "Por favor, ingrese un correo electronico valido",
                 "unavailable_email": "Este correo electronico ya está en uso",
                 "invalid_password": "Las contraseñas deben tener 6 o más caracteres, una letra mayuscula y un número."
-            }
+            },
+            "successful": "Se ha registrado correctamente"
         }
     }
 }
