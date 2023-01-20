@@ -37,7 +37,7 @@ class RestService {
 
     async login(username: string, password: string) {
         try {
-            const response = await axios.post(`${this.baseURL}/login`, { params: {username, password}});
+            const response = await axios.post(`${this.baseURL}/login`, { username: username, password: password });
             return response;
         } catch (error) {
             console.log(error);

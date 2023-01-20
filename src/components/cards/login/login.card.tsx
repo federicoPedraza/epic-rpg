@@ -9,8 +9,6 @@ const LoginCard = (props: ICard) => {
 
     const handleLogin = async (event: any) => {
         event.preventDefault();
-        console.log(username, password);
-
         try {
             const restService = RestService.getInstance();
             const user = await restService.login(username, password);
