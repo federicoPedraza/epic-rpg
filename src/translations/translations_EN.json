@@ -1,0 +1,16 @@
+{
+    "card": {
+        "signup": {
+            "username": "Username",
+            "password": "Password",
+            "email": "E-mail",
+            "errors": {
+                "invalid_username": "Usernames must be 4 or more characters long, without symbols",
+                "unavailable_username": "This username was already taken.",
+                "invalid_email": "Please enter a valid email",
+                "unavailable_email": "This email is already in use",
+                "invalid_password": "Passwords must be 6 or more characters long, with at least one capital letter and one number"
+            }
+        }
+    }
+}

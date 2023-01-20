@@ -1,0 +1,16 @@
+{
+    "card": {
+        "signup": {
+            "username": "Nombre de usuario",
+            "password": "Contraseña",
+            "email": "Correo electronico",
+            "errors": {
+                "invalid_username": "Los nombres de usuario deben tener 4 o más caracteres. No pueden contener simbolos ni espacios",
+                "unavailable_username": "Este nombre de usuario ya fué tomado.",
+                "invalid_email": "Por favor, ingrese un correo electronico valido",
+                "unavailable_email": "Este correo electronico ya está en uso",
+                "invalid_password": "Las contraseñas deben tener 6 o más caracteres, una letra mayuscula y un número."
+            }
+        }
+    }
+}
