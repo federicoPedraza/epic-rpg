@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next';
-import RestService from '../../../services/rest.service';
+import { signup } from '../../../services/auth.service';
 import { EMAIL_VERIFICATION_REGEX, PASSWORD_VERIFICATION_REGEX, USERNAME_VERIFICATION_REGEX } from '../../../utils/verifiers';
 import { AlertSeverity } from '../../alerts/alert.constants';
 import { SmallAlert } from '../../alerts/small-alert';
@@ -37,8 +37,7 @@ const SignupCard = (props: ICard) => {
 
         
         try {
-            const restService = RestService.getInstance();
-            const user = await restService.signup(username, email, password);
+            const user = await signup(username, email, password);
             setAlertMessage({message: t('card.signup.successful') as string, severity: AlertSeverity.SUCCESS});
             console.log(user);
         } catch (error) {

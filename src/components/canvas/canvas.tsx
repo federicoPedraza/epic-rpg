@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import RestService from '../../services/rest.service';
 import { commands } from '../../services/commands';
 import { CommandCenter } from '../../services/console.service';
 import { v4 as uuidv4 } from 'uuid';
@@ -22,7 +21,6 @@ const cards = new Map([
 
 export const Canvas = () => {
     const [openCards, setOpenCards] = useState<JSX.Element[]>([]);
-    const service = RestService.getInstance();
 
     const handleClose = (title: string) => {
         console.log(openCards);
@@ -50,11 +48,7 @@ export const Canvas = () => {
         commandCenter.registerCommand('close', handleClose);
         commandCenter.registerCommand('open', handleOpen);
         commandCenter.invokeCommand('open', 'login');
-        commandCenter.invokeCommand('open', 'signup');
-
-        service.getUsers().then(users => {
-            console.log(users);
-        }).catch(error => console.log(error));
+        commandCenter.invokeCommand('open', 'profile');
     }, []);
 
     return (
