@@ -1,9 +1,11 @@
 {
     "card": {
         "signup": {
+            "title": "Signup",
             "username": "Username",
             "password": "Password",
             "email": "E-mail",
+            "submit": "Signup",
             "errors": {
                 "invalid_username": "Usernames must be 4 or more characters long, without symbols",
                 "unavailable_username": "This username was already taken.",
@@ -12,6 +14,16 @@
                 "invalid_password": "Passwords must be 6 or more characters long, with at least one capital letter and one number"
             },
             "successful": "Signup successful"
+        },
+        "login": {
+            "title": "Login",
+            "username": "Username",
+            "password": "Password",
+            "submit": "Login",
+            "errors": {
+                "invalid_login": "Username and/or password doesn't exist"
+            },
+            "successful": "You've logged in successfuly"
         }
     }
 }

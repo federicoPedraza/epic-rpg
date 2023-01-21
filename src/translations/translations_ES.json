@@ -1,9 +1,11 @@
 {
     "card": {
         "signup": {
+            "title": "Registro",
             "username": "Nombre de usuario",
             "password": "Contraseña",
             "email": "Correo electronico",
+            "submit": "Registrarse",
             "errors": {
                 "invalid_username": "Los nombres de usuario deben tener 4 o más caracteres. No pueden contener simbolos ni espacios",
                 "unavailable_username": "Este nombre de usuario ya fué tomado.",
@@ -12,6 +14,16 @@
                 "invalid_password": "Las contraseñas deben tener 6 o más caracteres, una letra mayuscula y un número."
             },
             "successful": "Se ha registrado correctamente"
+        },
+        "login": {
+            "title": "Ingreso",
+            "username": "Nombre de usuario",
+            "password": "Contraseña",
+            "submit": "Ingresar",
+            "errors": {
+                "invalid_login": "El usuario y/o contraseña ingresados no existen"
+            },
+            "successful": "Se ha iniciado sesión correctamente"
         }
     }
 }

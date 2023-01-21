@@ -18,11 +18,11 @@ export const SmallAlert = (props: IAlert) => {
         }
     }
 
-    if (message.length === 0) return ( <div></div>);
+    if (message.length === 0) return (<div></div>);
 
     return (
         <div className='alert-border' style={{borderColor: getColor(severity), color: getColor(severity)}}>
-            <span>{message}</span>
+            <span>{message as string}</span>
         </div>
     )
 }
