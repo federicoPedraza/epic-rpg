@@ -1,34 +1,42 @@
+import create from 'zustand';
 import { persist } from 'zustand/middleware';
-import { createStore } from 'zustand/vanilla';
-import { User } from './models/user.model';
-
+import { statusT, userData } from './store.types';
 type StoreTokenState = {
-    userData: User | null;
-    session_id: string | null;
-    setUser: (newUserData: User) => void;
-    setSession: (session_id: string, expirasAt: string)=> void,
-    expiresAt: string | null;
+    userData:userData;
+    setUser: (user?: userData) => void;
+    wipeUser: () => void;
 };
 
-export const useSession = createStore<StoreTokenState>()(
-    persist(
-    (set) => ({
-        userData: null,
-        session_id: null,
-        setUser: (newUserData: User) => {
-            set({
-                userData: newUserData,
-            });
-        },
-        expiresAt: null,
-        setSession: (session_id: string, expiresAt: string) =>{
-            set({ 
-                session_id: session_id, 
-                expiresAt: expiresAt 
-            });
-        }}), 
-        { name: 'USER-store' }
-    )
-);
 
-export default useSession;
+export const useStore = create<StoreTokenState>()(
+  persist(
+    (set) => ({
+    userData: {
+      username: undefined,
+      mail: undefined,
+      state: undefined,
+      id: undefined,
+      creationDate: undefined
+    },
+    setUser: (user?: userData) => {
+      set({
+        userData: user
+      });
+      },
+      wipeUser: () => {
+        set({
+          userData: {
+            username: undefined,
+            mail: undefined,
+            state: undefined,
+            id: undefined,
+            creationDate: undefined
+          }
+        })
+      },
+    }), 
+    { name: 'user-store-private' }
+  )
+  );
+
+export default useStore;

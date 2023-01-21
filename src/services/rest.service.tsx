@@ -2,10 +2,10 @@ import axios from 'axios';
 
 class RestService {
     private static instance: RestService;
-    private baseURL: string;
+    private baseURL?: string;
 
     private constructor() {
-        this.baseURL = 'http://localhost:3005'; // cambiar a la URL de tu servidor Node.js
+        this.baseURL = process.env.REACT_APP_BASE_URL; // cambiar a la URL de tu servidor Node.js
     }
 
     public static getInstance(): RestService {

@@ -1,26 +1,25 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import { login } from '../../../services/auth.service';
+import useStore from '../../../store';
 import { AlertSeverity } from '../../alerts/alert.constants';
 import { SmallAlert } from '../../alerts/small-alert';
 import { Card } from '../card/card';
 import { ICard } from '../card/card.constants';
-import { useSession } from '../../../store';
 import './login.card.sass';
 
 const LoginCard = (props: ICard) => {
     const { t } = useTranslation();
     const [ username, setUsername ] = useState<string>('');
     const [ password, setPassword ] = useState<string>('');
-    const { setUser } = useSession;
     const [ alertMessage , setAlertMessage ] = useState<any>({message: '', severity: AlertSeverity.INFO});
-
+    const { setUser } = useStore()
     const handleLogin = async (event: any) => {
         event.preventDefault();
         
         try {
             const user = await login(username, password);
-            setUser(user);
+            setUser(user)
             setAlertMessage({message: (t('card.login.successful') as string), severity: AlertSeverity.SUCCESS});
         } catch (error) {
             setAlertMessage({message: (t('card.login.errors.invalid_login') as string), severity: AlertSeverity.ERROR});

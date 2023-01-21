@@ -49,6 +49,7 @@ export const Canvas = () => {
         commandCenter.registerCommand('open', handleOpen);
         commandCenter.invokeCommand('open', 'login');
         commandCenter.invokeCommand('open', 'profile');
+        commandCenter.invokeCommand('open', 'console')
     }, []);
 
     return (

@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { User } from '../models/user.model';
-import useSession from '../store';
+import { userData } from '../store.types';
 
-const baseURL = 'localhost:3005';
+const baseURL = process.env.REACT_APP_BASE_URL;
 
 export async function signup(username: string, mail: string, password: string): Promise<void> {
     try {
@@ -12,15 +12,13 @@ export async function signup(username: string, mail: string, password: string): 
     }
 }
 
-export async function login(username: string, password: string): Promise<User> {
+export async function login(username: string, password: string): Promise<userData> {
     try {
-        const response = await axios.post(`${baseURL}/login`, { username, password });
+        const response = await axios.post(`${baseURL}login`, { username, password });
         const userData = response.data.user;
-        return {
-            username: userData.username,
-            id: userData.id
-        } as User;
+        return userData;
     } catch (error) {
+        console.log('try',error)
         throw error;
     }
 }
