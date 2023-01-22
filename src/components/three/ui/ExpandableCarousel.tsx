@@ -11,8 +11,8 @@ export const ExpandableCarousel = ({ w = .25, gap = 0.01 }:IExpandableCarousel) 
     const { width } = useThree((state) => state.viewport)
     const xW = w + gap
     return (
-        <ScrollControls horizontal damping={10} pages={(width - xW + urls.length * xW) / width}>
-        <Scroll>
+        <ScrollControls horizontal={false} damping={10}  pages={(width - xW + urls.length * xW) / width}>
+        <Scroll >
           {urls.map((url, i) => <ExpandableItem key={i} index={i} position={[i * xW, 0, 0]} scale={[w, 4, 1]} url={url} />)}
         </Scroll>
       </ScrollControls>
