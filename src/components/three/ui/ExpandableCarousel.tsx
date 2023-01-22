@@ -13,7 +13,7 @@ export const ExpandableCarousel = ({ w = .25, gap = 0.01 }:IExpandableCarousel) 
     return (
         <ScrollControls horizontal damping={10} pages={(width - xW + urls.length * xW) / width}>
         <Scroll>
-          {urls.map((url, i) => <ExpandableItem key={i} index={i} position={[i * xW, 0, 0]} scale={[w, 4, 1]} url={url} />) /* prettier-ignore */}
+          {urls.map((url, i) => <ExpandableItem key={i} index={i} position={[i * xW, 0, 0]} scale={[w, 4, 1]} url={url} />)}
         </Scroll>
       </ScrollControls>
     )
